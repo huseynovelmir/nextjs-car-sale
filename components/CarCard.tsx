@@ -1,60 +1,12 @@
-// 'use client'
-// import { useState } from 'react'
-// import { FetchData } from '@/types'
-// import Image from 'next/image';
-// import { CarProps } from '@/types';
-// import { calculateCarRent } from '@/utils';
-
-
-
-
-// function CarCard({ allCars }: FetchData) {
-
-//     const carRent = calculateCarRent(allCars.city_mpg, allCars.year)
-
-//     console.log(allCars);
-
-
-
-//     const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-//     return (
-//         <div className='mt-12 padding-x padding-y max-width'>
-//             {!isDataEmpty ? (
-//                 <section>
-//                     <div className='home__cars-wrapper'>
-//                         {allCars?.map((car: CarProps) => (
-//                             <div className='car-card group'>
-//                                 <div className='car-card__content'>
-//                                     <h2 className='car-card__content-title'>{car.make}  {car.model}</h2>
-//                                 </div>
-//                                 <p>
-//                                     <span>
-//                                         {car.city_mpg}
-//                                     </span>
-//                                 </p>
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </section>
-
-//             ) : (
-//                 <div className='home__error-container'>
-//                     <h2 className='text-black text-xl font-bold'>upps no result</h2>
-//                     <p>{allCars?.message}</p>
-//                 </div>
-//             )}
-//         </div>
-//     )
-// }
-
-// export default CarCard
 "use client"
 
 import { useState } from 'react'
 import Image from 'next/image'
 import { CarProps } from '@/types'
-import CustomButton from './CustomButton'
 import { calculateCarRent } from '@/utils'
+import { CustomButton, CarDetails } from '@/components'
+
+
 interface CarCardProps {
     car: CarProps
 }
@@ -62,19 +14,90 @@ interface CarCardProps {
 function CarCard({ car }: CarCardProps) {
     const { city_mpg, year, make, model, transmission, drive } = car;
     const carRent = calculateCarRent(city_mpg, year);
+
+    const [isOpen, setIsOpen] = useState(false)
     return (
-        <div>
-            <div className='car-card group'>
-                <div className='car-card__content'>
-                    <h2 className='car-card__content-title'>{make}  {model}</h2>
-                </div>
-                <p>
-                    <span>
-                        {carRent}
-                    </span>
-                </p>
+
+        <div className='car-card group'>
+            <div className='car-card__content'>
+                <h2 className='car-card__content-title'>{make}  {model}</h2>
             </div>
+            <p className='flex mt-6 text-[32px] font-extrabold'>
+                <span className='self-start text-[14px] font-semibold'>
+                    $
+                </span>
+                {carRent}
+                <span className='self-end text-[14px] font-medium'>
+                    /day
+                </span>
+            </p>
+            <div className='relative w-full h-40 my-3 object-contain'>
+                <Image
+                    className='object-contain'
+                    src="/car.png"
+                    alt="Car"
+                    fill
+                    priority
+                />
+            </div>
+            <div className='relative flex w-full mt-2'>
+                <div className='flex group-hover:invisible w-full justify-between text-gray'>
+
+                    <div className='flex flex-col justify-center items-center gap-2'>
+                        <Image
+                            className='object-contain'
+                            src="/steering-wheel.svg"
+                            alt="Streering wheel"
+                            width={20}
+                            height={20}
+                            priority
+                        />
+                        <p className='text-[14px]'>
+                            {transmission === 'a' ? 'Automatic' : 'Manual'}
+                        </p>
+                    </div>
+
+                    <div className='flex flex-col justify-center items-center gap-2'>
+                        <Image
+                            className='object-contain'
+                            src="/tire.svg"
+                            alt="Tire"
+                            width={20}
+                            height={20}
+                            priority
+                        />
+                        <p className='text-[14px]'>
+                            {drive.toUpperCase()}
+                        </p>
+                    </div>
+
+                    <div className='flex flex-col justify-center items-center gap-2'>
+                        <Image
+                            className='object-contain'
+                            src="/gas.svg"
+                            alt="Gas"
+                            width={20}
+                            height={20}
+                            priority
+                        />
+                        <p className='text-[14px]'>
+                            {city_mpg} MPG
+                        </p>
+                    </div>
+                </div>
+                <div className="car-card__btn-container">
+                    <CustomButton
+                        title="View More"
+                        containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+                        textStyles="text-white text-[14px] leading-[17px] font-bold"
+                        rightIcon="/right-arrow.svg"
+                        handleClick={() => setIsOpen(true)}
+                    />
+                </div>
+            </div>
+            <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
         </div>
+
     )
 }
 

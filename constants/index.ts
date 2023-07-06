@@ -92,10 +92,10 @@ export const footerLinks = [
     {
         title: "Socials",
         links: [
-            { title: "Discord", url: "/" },
-            { title: "Instagram", url: "/" },
-            { title: "Twitter", url: "/" },
-            { title: "Facebook", url: "/" },
+            { title: "Linkedin", url: "https://www.linkedin.com/in/huseynovelmir/" },
+            { title: "Medium", url: "https://medium.com/@huseynovelmir789" },
+            { title: "Threads", url: "https://www.threads.net/@huseynovelmirr" },
+            { title: "Instagram", url: "https://www.instagram.com/huseynovelmirr" },
         ],
     },
 ];
