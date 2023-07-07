@@ -30,7 +30,7 @@ function SearchBar() {
       return alert('Please fill in the search bar')
     }
     updateSearchParams(model.toLocaleLowerCase(),
-     manufacturer.toLocaleLowerCase())
+      manufacturer.toLocaleLowerCase())
 
   }
 
