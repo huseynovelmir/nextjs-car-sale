@@ -1,5 +1,6 @@
 import React from 'react'
 import {SearchBar,CustomFilter} from './index'
+import { fuels, yearsOfProduction } from '@/constants'
 
 function CarCatalouge() {
     return (
@@ -12,8 +13,8 @@ function CarCatalouge() {
             <div className="home__filters">
                 <SearchBar/>
                 <div className="home__filter-container">
-                    {/* <CustomFilter title="fuel"  />
-                    <CustomFilter title="year"  /> */}
+                    <CustomFilter title="fuel" options={fuels} />
+                    <CustomFilter title="year" options={yearsOfProduction} />
                 </div>
             </div>
         </div>
