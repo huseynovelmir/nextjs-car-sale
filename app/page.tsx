@@ -6,7 +6,8 @@ import { fetchCars } from '@/utils'
 
 
 
-async function page({ searchParams }) {
+
+async function page({ searchParams }:any) {
 
   const allCars = await fetchCars({
     manufacturer: searchParams.maufacturer || '',
