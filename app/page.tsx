@@ -1,8 +1,9 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { Hero, CarCatalouge, CarCard, CustomFilter } from '@/components'
+import { Hero, CarCatalouge, CarCard,ShowMore } from '@/components'
 import { fetchCars } from '@/utils'
+
 
 
 async function page({ searchParams }) {
@@ -11,7 +12,7 @@ async function page({ searchParams }) {
     manufacturer: searchParams.maufacturer || '',
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || '',
-    limit: searchParams.limit || 10,
+    limit: searchParams.limit || 9,
     model: searchParams.model || '',
 
   }
@@ -32,6 +33,11 @@ async function page({ searchParams }) {
                 <CarCard car={car} />
               ))}
             </div>
+            <ShowMore 
+            pageNumber={(searchParams.limit || 9)}
+            isNext={(searchParams.limit || 9) > allCars.length}
+            
+            />
           </section>
 
         ) : (
@@ -40,6 +46,7 @@ async function page({ searchParams }) {
             <p>{allCars?.message}</p>
           </div>
         )}
+
       </div>
     </main>
   )
