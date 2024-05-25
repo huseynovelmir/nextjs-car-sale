@@ -1,6 +1,5 @@
 
 
-[Click to visit website](https://nextjs-car-sale.vercel.app/)
 # Next.js Car Sale Project
 
 This project is a car sales platform developed using Next.js. It allows users to browse, search, and purchase cars through a modern and responsive web application.
@@ -17,3 +16,19 @@ This project is a car sales platform developed using Next.js. It allows users to
 1. **Installation:** Clone the project repository to your local machine.
    ```bash
    git clone https://github.com/huseynovelmir/nextjs-car-sale.git
+2. **Install dependencies**
+   ```bash
+   npm install
+
+3. **Run the development server**
+   ```bash
+   npm run dev 
+# Contact
+
+Feel free to reach out if you have any questions or suggestions about the project.
+
+- **Email**: huseynovelmir789@gmail.com
+- **LinkedIn**: [linkedin.com/in/huseynovelmir](https://www.linkedin.com/in/huseynovelmir/)
+- **Instagram**: [instagram.com/needforelmir](https://www.instagram.com/needforelmir/)
+
+[Click to visit website](https://nextjs-car-sale.vercel.app/)
