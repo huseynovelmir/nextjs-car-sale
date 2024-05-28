@@ -1,6 +1,6 @@
 
 
-# Next.js Car Sale Project
+# Next.js Car Sale Project [click to visit the site](https://nextjs-car-sale.vercel.app/)
 
 This project is a car sales platform developed using Next.js. It allows users to browse, search, and purchase cars through a modern and responsive web application.
 
@@ -31,4 +31,3 @@ Feel free to reach out if you have any questions or suggestions about the projec
 - **LinkedIn**: [linkedin.com/in/huseynovelmir](https://www.linkedin.com/in/huseynovelmir/)
 - **Instagram**: [instagram.com/needforelmir](https://www.instagram.com/needforelmir/)
 
-[Click to visit website](https://nextjs-car-sale.vercel.app/)
